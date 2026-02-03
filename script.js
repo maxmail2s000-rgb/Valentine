@@ -134,16 +134,14 @@ const spostaNo = (e) => {
     const maxAllowedX = winWidth - btnWidth - safeMargin;
     const maxAllowedY = winHeight - btnHeight - safeMargin;
 
-    const newX = Math.max(safeMargin, Math.random() * maxAllowedX);
-    const newY = Math.max(safeMargin, Math.random() * maxAllowedY);
+    const newX = Math.max(safeMargin, Math.random() * maxAllowedX)+10;
+    const newY = Math.max(safeMargin, Math.random() * maxAllowedY)+10;
     
     // 4. Applica coordinate
     btnNo.style.left = `${newX}px`;
     btnNo.style.top = `${newY}px`;
 };
 
-// --- LE RIGHE CHE MANCAVANO! (COLLEGAMENTO EVENTI) ---
-// Senza queste, il bottone NO non si muove mai
 btnNo.addEventListener('mouseover', spostaNo);
 btnNo.addEventListener('touchstart', spostaNo, { passive: false }); 
 btnNo.addEventListener('click', spostaNo);
