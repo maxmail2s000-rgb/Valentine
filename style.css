@@ -1,0 +1,107 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffe6e6;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Disegno del Cuore */
+.heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    background-color: #ff3860;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 10;
+    animation: heartbeat 1.5s infinite;
+}
+
+.heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    background-color: #ff3860;
+    border-radius: 50px 50px 0 0;
+    top: -40px;
+}
+
+.heart::before { left: 0; transform: rotate(-45deg); transform-origin: 0 100%; }
+.heart::after { left: 50px; transform: rotate(45deg); transform-origin: 100% 100%; }
+
+.heart .text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 20;
+    pointer-events: none;
+}
+
+/* Stile delle Immagini */
+.memory-photo {
+    position: absolute;
+    width: 200px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    opacity: 0;
+    transform: scale(0.5) translateY(0);
+    text-align: center;
+    transition: all 1s ease-in-out;
+    z-index: 5;
+}
+
+.memory-photo img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.memory-photo p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Classe per animare l'uscita */
+.animate-out {
+    opacity: 1 !important;
+    transform: scale(1) translateY(-150px) !important; 
+}
+
+/* Classe per far sparire le foto vecchie */
+.fade-away {
+    opacity: 0 !important;
+    transform: scale(1.2) translateY(-300px) !important;
+}
+
+/* L'invito finale resta fisso */
+.final-invite {
+    opacity: 1 !important;
+    transform: scale(1.2) translateY(-50px) !important;
+    z-index: 100;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
