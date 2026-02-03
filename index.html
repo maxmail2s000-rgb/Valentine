@@ -3,16 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Per Te</title>
+    <title>Per Te ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div id="heart-box" class="heart">
-            <div class="text">Cliccami</div>
+
+    <div class="scene-container">
+        <model-viewer 
+            id="my-box"
+            src="scatola.glb" 
+            alt="Una scatola regalo speciale"
+            camera-controls 
+            disable-zoom
+            auto-rotate
+            rotation-per-second="30deg"
+            shadow-intensity="1"
+            interaction-prompt="none">
+        </model-viewer>
+
+        <div class="instruction">Tocca la scatola per scoprire cosa c'è dentro...</div>
+    </div>
+
+    <div id="overlay">
+        
+        <div id="active-photo" class="polaroid-large">
+            <img src="" id="active-img">
+            <p id="active-text"></p>
         </div>
 
-        <div id="photo-container"></div>
+        <div id="final-question" class="hidden">
+            <div class="polaroid-large final-mode">
+                <p style="font-size: 1.5rem; margin-bottom: 30px;">Vuoi mangiare un'altra volta a San Valentino con me?</p>
+                <div class="buttons-container">
+                    <button id="btn-yes">SÌ 😍</button>
+                    <button id="btn-no">NO 😢</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="celebration-screen" class="hidden">
+            <img id="festa-gif" src="vittoria.gif" alt="Evviva">
+            <h1 class="ti-amo">TI AMO </h1>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
